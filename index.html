@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AGROVAULT | Smart Cold Storage</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">🌱</div>
+            <div>
+                <h2>AGROVAULT</h2>
+                <span>Smart Cold Storage</span>
+            </div>
+        </div>
+
+        <nav>
+
+            <a href="#dashboard" class="nav-item active">
+                📊 Dashboard
+            </a>
+
+            <a href="#crops" class="nav-item">
+                🥬 Crop Inventory
+            </a>
+
+            <a href="#ai" class="nav-item">
+                🤖 AI Prediction
+            </a>
+
+            <a href="#energy" class="nav-item">
+                ☀️ Energy
+            </a>
+
+            <a href="#alerts" class="nav-item">
+                🔔 Alerts
+            </a>
+
+            <a href="#coldbank" class="nav-item">
+                🏦 Cold Bank
+            </a>
+
+            <a href="#settings" class="nav-item">
+                ⚙️ Settings
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <p>System Status</p>
+            <span class="online" id="connectionStatus">
+                ● Online
+            </span>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div>
+                <p class="small-text">SMART AGRICULTURE</p>
+                <h1>AGROVAULT Dashboard</h1>
+            </div>
+
+            <div class="profile">
+                <span>👨‍🌾</span>
+                <div>
+                    <strong>Akbar Ali Basha</strong>
+                    <small>NER Community</small>
+                </div>
+            </div>
+
+            <div class="mode-switch" role="group" aria-label="Data mode">
+                <button type="button" class="mode-button active" data-mode="demo">Demo</button>
+                <button type="button" class="mode-button" data-mode="live">Live</button>
+            </div>
+
+            <button type="button" class="alarm-test" id="testAlarm">Test sound</button>
+
+        </header>
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div>
+                <span class="badge">
+                    ☀️ SOLAR POWERED
+                </span>
+
+                <h2>
+                    Protect your harvest.<br>
+                    Predict the right time to sell.
+                </h2>
+
+                <p>
+                    AI-powered solar cold storage for fresh vegetables
+                    in remote and rural regions.
+                </p>
+
+                <button onclick="scrollToSection('crops')">
+                    Manage Crops →
+                </button>
+            </div>
+
+            <div class="hero-visual">
+                <div class="cold-box">
+                    ❄️
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboard">
+
+            <div class="section-title">
+                <div>
+                    <p class="small-text">LIVE MONITORING</p>
+                    <h2>Cold Storage Status</h2>
+                </div>
+
+                <span class="live" id="liveStatus">
+                    ● LIVE
+                </span>
+            </div>
+
+
+            <div class="stats-grid">
+
+                <!-- TEMPERATURE -->
+
+                <div class="stat-card">
+
+                    <div class="stat-header">
+                        <span>🌡️</span>
+                        <span class="status normal">Normal</span>
+                    </div>
+
+                    <h3 id="temperature">
+                        4.2°C
+                    </h3>
+
+                    <p>Temperature</p>
+
+                    <small>
+                        Recommended: 2–8°C
+                    </small>
+
+                </div>
+
+
+                <!-- HUMIDITY -->
+
+                <div class="stat-card">
+
+                    <div class="stat-header">
+                        <span>💧</span>
+                        <span class="status normal">Normal</span>
+                    </div>
+
+                    <h3 id="humidity">
+                        78%
+                    </h3>
+
+                    <p>Humidity</p>
+
+                    <small>
+                        Sensor: H-01
+                    </small>
+
+                </div>
+
+
+                <!-- BATTERY -->
+
+                <div class="stat-card">
+
+                    <div class="stat-header">
+                        <span>🔋</span>
+                        <span class="status normal">Healthy</span>
+                    </div>
+
+                    <h3 id="battery">
+                        86%
+                    </h3>
+
+                    <p>Battery</p>
+
+                    <small>
+                        Solar backup available
+                    </small>
+
+                </div>
+
+
+                <!-- SOLAR -->
+
+                <div class="stat-card">
+
+                    <div class="stat-header">
+                        <span>☀️</span>
+                        <span class="status normal">Generating</span>
+                    </div>
+
+                    <h3 id="solar">
+                        2.8 kW
+                    </h3>
+
+                    <p>Solar Power</p>
+
+                    <small>
+                        PV generation
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ENERGY -->
+
+        <section id="energy" class="content-section">
+
+            <div class="section-title">
+
+                <div>
+                    <p class="small-text">HYBRID ENERGY</p>
+                    <h2>Energy Management</h2>
+                </div>
+
+            </div>
+
+            <div class="energy-grid">
+
+                <div class="energy-card">
+
+                    <div class="energy-icon">☀️</div>
+
+                    <h3>Solar Generation</h3>
+
+                    <strong id="solarEnergy">
+                        2.8 kW
+                    </strong>
+
+                    <div class="progress">
+                        <div
+                            class="progress-fill"
+                            id="solarBar"
+                            style="width:70%">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="energy-card">
+
+                    <div class="energy-icon">🔋</div>
+
+                    <h3>Battery</h3>
+
+                    <strong id="batteryEnergy">
+                        86%
+                    </strong>
+
+                    <div class="progress">
+                        <div
+                            class="progress-fill"
+                            id="batteryBar"
+                            style="width:86%">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="energy-card">
+
+                    <div class="energy-icon">❄️</div>
+
+                    <h3>Thermal Storage</h3>
+
+                    <strong>
+                        <span id="thermalEnergy">--</span>
+                    </strong>
+
+                    <div class="progress">
+                        <div
+                            class="progress-fill"
+                            style="width:72%">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CROPS -->
+
+        <section id="crops" class="content-section">
+
+            <div class="section-title">
+
+                <div>
+                    <p class="small-text">INVENTORY</p>
+                    <h2>Crop Storage</h2>
+                </div>
+
+                <button onclick="openCropForm()">
+                    + Add Crop
+                </button>
+
+            </div>
+
+
+            <div class="crop-form" id="cropForm">
+
+                <input
+                    type="text"
+                    id="cropName"
+                    placeholder="Crop name">
+
+                <input
+                    type="number"
+                    id="cropQuantity"
+                    placeholder="Quantity (kg)">
+
+                <input
+                    type="number"
+                    id="cropLife"
+                    placeholder="Expected shelf life (days)">
+
+                <input
+                    type="date"
+                    id="cropDate"
+                    aria-label="Storage date">
+
+                <select id="cropType" aria-label="Crop type">
+                    <option>Vegetable</option>
+                    <option>Fruit</option>
+                    <option>Root crop</option>
+                    <option>Spice</option>
+                </select>
+
+                <button onclick="addCrop()">
+                    Save Crop
+                </button>
+
+            </div>
+
+
+            <div id="cropList" class="crop-grid">
+
+                <div class="crop-card">
+
+                    <div class="crop-image">
+                        🥦
+                    </div>
+
+                    <div>
+                        <h3>Broccoli</h3>
+                        <p>120 kg stored</p>
+
+                        <span class="quality">
+                            Quality 92%
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="crop-card">
+
+                    <div class="crop-image">
+                        🥕
+                    </div>
+
+                    <div>
+                        <h3>Carrot</h3>
+                        <p>80 kg stored</p>
+
+                        <span class="quality">
+                            Quality 88%
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- AI -->
+
+        <section id="ai" class="content-section">
+
+            <div class="section-title">
+
+                <div>
+                    <p class="small-text">INTELLIGENCE</p>
+                    <h2>AI Shelf-Life Prediction</h2>
+                </div>
+
+                <span class="ai-badge">
+                    🤖 AI DEMO
+                </span>
+
+            </div>
+
+
+            <div class="ai-card">
+
+                <div class="ai-main">
+
+                    <div class="ai-icon">
+                        🤖
+                    </div>
+
+                    <div>
+
+                        <h3>Broccoli</h3>
+
+                        <p>
+                            Based on storage conditions and
+                            crop age.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="prediction">
+
+                    <div>
+                        <small>Remaining shelf life</small>
+                        <strong>5 Days</strong>
+                    </div>
+
+                    <div>
+                        <small>Quality</small>
+                        <strong>92%</strong>
+                    </div>
+
+                    <div>
+                        <small>Best selling</small>
+                        <strong>Sep 12</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ALERTS -->
+
+        <section id="alerts" class="content-section">
+
+            <div class="section-title">
+
+                <div>
+                    <p class="small-text">SYSTEM NOTIFICATIONS</p>
+                    <h2>Alerts</h2>
+                </div>
+
+            </div>
+
+
+            <div id="alertList">
+
+                <div class="alert success">
+                    <span>✓</span>
+                    <div>
+                        <strong>Temperature stable</strong>
+                        <p>Storage temperature is within safe range.</p>
+                    </div>
+                </div>
+
+
+                <div class="alert warning">
+                    <span>⚠️</span>
+                    <div>
+                        <strong>Crop approaching expiry</strong>
+                        <p>Broccoli should be sold within 5 days.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- COLD BANK -->
+
+        <section id="coldbank" class="content-section">
+
+            <div class="coldbank">
+
+                <div>
+
+                    <p class="small-text">
+                        COMMUNITY MODEL
+                    </p>
+
+                    <h2>
+                        🏦 Community Cold Bank
+                    </h2>
+
+                    <p>
+                        Farmers can share the cold storage facility
+                        through an affordable pay-per-use model.
+                    </p>
+
+                </div>
+
+
+                <div class="capacity">
+
+                    <span>Storage Capacity</span>
+
+                    <strong id="bankCapacity">
+                        68%
+                    </strong>
+
+                    <div class="progress">
+                        <div
+                            class="progress-fill"
+                            style="width:68%">
+                        </div>
+                    </div>
+
+                    <small id="bankAvailable">
+                        320 kg available
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="settings" class="content-section">
+            <div class="section-title">
+                <div>
+                    <p class="small-text">PREFERENCES</p>
+                    <h2>Settings</h2>
+                </div>
+            </div>
+            <div class="crop-form settings-form" style="display:block">
+                <label>Farmer name <input id="farmerName" type="text" value="Akbar Ali Basha"></label>
+                <label>Temperature unit <select><option>°C — Celsius</option><option>°F — Fahrenheit</option></select></label>
+                <label><input type="checkbox" checked> Alert notifications</label>
+                <button type="button" id="saveSettings">Save settings</button>
+                <span id="saveMessage"></span>
+            </div>
+        </section>
+
+        <footer>
+
+            <strong>AGROVAULT</strong>
+
+            <p>
+                Solar • AI • IoT • Sustainable Agriculture
+            </p>
+
+            <small>
+                Smart India Hackathon 2026 | Corevolts
+            </small>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
